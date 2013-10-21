@@ -1,10 +1,10 @@
 " Bundels declaration
-Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'ack.vim'
 Bundle 'AutoComplPop'
 Bundle 'ctrlp.vim'
 Bundle 'EasyMotion'
+Bundle 'tpope/vim-fugitive'
 Bundle 'Gundo'
 Bundle 'vim-less'
 Bundle 'loremipsum'
@@ -17,6 +17,8 @@ Bundle 'tComment'
 Bundle 'wokmarks.vim'
 Bundle 'rebtags'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'vundle'
+Bundle 'grails-vim'
 Bundle 'nerdtree'
 
 " Bundels Configuration
@@ -33,7 +35,6 @@ let g:ctrlp_us_caching = 1
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix', 'dir', 'rtscript',
                          \ 'undo', 'line', 'changes', 'mixed', 'bookmarkdir']
-
 " Easymotion configuration
 let g:EasyMotion_leader_key = '\'
 
@@ -56,4 +57,3 @@ let g:tagbar_type_groovy = {
 
 " NERDTree
 map <S-w> :NERDTreeToggle<CR>
-
