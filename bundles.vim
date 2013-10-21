@@ -1,9 +1,10 @@
 " Bundels declaration
+Bundle 'gmarik/vundle'
+Bundle 'tpope/vim-fugitive'
 Bundle 'ack.vim'
 Bundle 'AutoComplPop'
 Bundle 'ctrlp.vim'
 Bundle 'EasyMotion'
-Bundle 'tpope/vim-fugitive'
 Bundle 'Gundo'
 Bundle 'vim-less'
 Bundle 'loremipsum'
@@ -16,6 +17,7 @@ Bundle 'tComment'
 Bundle 'wokmarks.vim'
 Bundle 'rebtags'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'nerdtree'
 
 " Bundels Configuration
 
@@ -31,14 +33,27 @@ let g:ctrlp_us_caching = 1
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix', 'dir', 'rtscript',
                          \ 'undo', 'line', 'changes', 'mixed', 'bookmarkdir']
+
 " Easymotion configuration
 let g:EasyMotion_leader_key = '\'
-
-" Flake 8 Configuration
-let g:flake8_max_line_length = 120
 
 " Vim-Coffee-Script
 autocmd BufNewFile,BufRead *.coffee set filetype=coffee
 
-" Jinja
-autocmd BufNewFile,BufRead *.jinja set filetype=jinja
+" Tagbar
+let g:tagbar_ctags_bin='/usr/bin/ctags'
+nmap <F8> :TagbarToggle<CR>
+let g:tagbar_type_groovy = {
+  \ 'ctagstype' : 'groovy',
+  \ 'kinds'     : [
+  \ 'p:package',
+  \ 'c:class',
+  \ 'i:interface',
+  \ 'f:function',
+  \ 'v:variables',
+  \ ]
+\ } 
+
+" NERDTree
+map <S-w> :NERDTreeToggle<CR>
+
