@@ -1,0 +1,190 @@
+set nocompatible
+
+syntax on " Syntax highlight
+
+" Appearence
+colorscheme elflord
+set background=dark
+
+" Variables
+set number
+set numberwidth=4
+set encoding=utf-8
+set laststatus=2
+set showcmd
+
+
+" Custom VIM mappings
+let mapleader = " " "Leader is <space>
+imap jk <Esc>
+
+" Properties
+set modeline
+set modelines=5
+
+" Options
+set nowrap
+set textwidth=99
+set colorcolumn=100
+
+set cursorline
+
+" Search Options
+set incsearch
+set wrapscan
+set ignorecase
+set smartcase
+set hlsearch
+
+" Whitespaces
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+
+" indentation behaviour
+set autoindent
+set copyindent
+
+" folding
+set foldmethod=indent
+set foldlevelstart=20
+
+" Remove last spaces
+autocmd BufWritePre * :%s/\s\+$//e
+
+" Show hidden characters
+set list
+set listchars=tab:▸\ ,trail:.
+"highlight NonText ctermfg=1
+
+set clipboard=unnamedplus
+
+"
+" NEOBUNDLE CONFIG
+"
+if has('vim_starting')
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
+call neobundle#rc(expand('~/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" Plugins
+NeoBundle 'Shougo/vimproc'
+
+" Surround
+NeoBundle 'tpope/vim-surround'
+
+" Unite
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'ujihisa/unite-colorscheme'
+NeoBundle 'tsukkee/unite-help'
+NeoBundle 'h1mesuke/unite-outline'
+
+"Control P
+NeoBundle 'kien/ctrlp.vim'
+
+" Fugitive
+NeoBundle 'tpope/vim-fugitive'
+
+" Powerline
+NeoBundle 'bling/vim-airline'
+
+" Nerdtree
+NeoBundle 'scrooloose/nerdtree'
+
+" Clojure
+NeoBundle 'kien/rainbow_parentheses.vim'
+NeoBundle 'guns/vim-clojure-static'
+NeoBundle 'tpope/vim-fireplace'
+
+" Less
+NeoBundle 'lunaru/vim-less'
+
+" Groovy
+NeoBundle 'vim-scripts/groovy.vim'
+
+" CTAGS
+NeoBundle 'majutsushi/tagbar'
+
+" Coffeescript
+NeoBundle 'kchmck/vim-coffee-script'
+
+" Python
+NeoBundle 'klen/python-mode'
+NeoBundle 'jmcantrell/vim-virtualenv'
+
+
+
+filetype plugin indent on     " Required!
+
+NeoBundleCheck
+
+
+" PLUGINS CONFIG
+" Unite
+set wildignore+=*.o,*.obj,*.pyc,*.class
+set wildignore+=.git
+set wildignore+=node_modules
+set wildignore+=target
+set wildignore+=*.dvi,*.pdf
+set wildignore+=*.jpg,*.png,*.tiff,*.gif
+set wildignore+=*.orig,*.ser
+
+" call unite#filters#matcher_default#use(['matcher_fuzzy']) let g:unite_source_file_rec_max_cache_files = 10000 let g:unite_source_history_yank_enable = 1
+let g:unite_promp = '» '
+let g:unite_enable_start_insert = 1
+let g:unite_source_history_yank_limit = 10000
+let g:unite_split_rule = 'botright'
+let g:unite_source_history_yank_file = "/home/alotor/.vim/yanks"
+
+let s:file_rec_ignore_pattern = (unite#sources#rec#define()[0]['ignore_pattern']) . '\|\$global\|\.class$\|\<target\>\|\.xml$'
+
+call unite#custom#source('file_rec,file_rec/async', 'ignore_pattern', (unite#sources#rec#define()[0]['ignore_pattern']) .  '\|target-eclipse\/'.  '\|target\/'.  '\|\.jar$'.  '\|\.orig$'.  '\|\.ser$')
+"call unite#custom#source('file_rec,file_rec/async', 'ignore_pattern', '\|target-eclipse\/'.  '\|target\/'.  '\|\.jar$'.  '\|\.orig$'.  '\|\.ser$')
+
+"call unite#custom#source('file_rec', 'ignore_pattern', s:file_rec_ignore_pattern)
+"call unite#custom#source('file_rec,file_rec/async', 'ignore_pattern', '\target\')
+"let g:unite_source_grep_command = 'ack'
+"let g:unite_source_grep_default_opts = '--no-heading --no-color -a -H'
+"let g:unite_source_grep_recursive_opt = ''
+" NERDTree
+let NERDTreeIgnore = ['\~$', '\.tox$', 'dist', '\.o$', '\.sw[op]$', '\.pyc$', '\.egg-info$', '\.git$', '\.aux$', '\.bbl$', '\.blg$', '\.dvi$', '.DS_Store$', '.ropeproject']
+let NERDTreeShowHidden = 1
+let NERDTreeShowLineNumbers = 0
+let NERDTreeSortOrder = ['\/$', '\.h$', '\.c$', '*']
+let NERDTreeWinSize = 30
+let NERDTreeShowBookmarks=1
+let NERDTreeMinimalUI = 1
+
+nnoremap <Leader>n :NERDTreeToggle<CR>
+nnoremap <Leader>l :NERDTreeFind<CR>
+
+nnoremap <Leader>o <C-o>
+nnoremap <Leader>i <C-i>
+
+"nnoremap <C-o> :Unite -no-split file_rec/async<CR>
+nnoremap <C-o> :CtrlP<cr>
+nnoremap <Leader>/ :Unite grep:.<cr>
+nnoremap <Leader>b :Unite -no-split buffer<CR>
+nnoremap <Leader>y :Unite history/yank<CR>
+
+" vim-airline
+let g:airline#extensions#tabline#enabled = 1
+
+" Tagbar
+let g:tagbar_ctags_bin='/usr/bin/ctags'
+nmap <F8> :TagbarToggle<CR>
+let g:tagbar_type_groovy = {
+  \ 'ctagstype' : 'groovy',
+  \ 'kinds'     : [
+    \ 'p:package',
+    \ 'c:class',
+    \ 'i:interface',
+    \ 'f:function',
+    \ 'v:variables',
+  \ ]
+\ }

@@ -1,6 +1,7 @@
 " Bundels declaration
 Bundle 'tpope/vim-fugitive'
-Bundle 'ack.vim'
+"Bundle 'ack.vim'
+Bundle 'rking/ag.vim'
 Bundle 'AutoComplPop'
 Bundle 'ctrlp.vim'
 Bundle 'EasyMotion'
@@ -10,7 +11,7 @@ Bundle 'vim-less'
 Bundle 'loremipsum'
 Bundle 'matchit.zip'
 Bundle 'snipMate'
-Bundle 'sparkup'
+Bundle 'rstacruz/sparkup'
 Bundle 'surround.vim'
 Bundle 'Tagbar'
 Bundle 'tComment'
@@ -19,7 +20,7 @@ Bundle 'rebtags'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'vundle'
 Bundle 'grails-vim'
-Bundle 'nerdtree'
+Bundle 'scrooloose/nerdtree'
 
 " Bundels Configuration
 
@@ -53,7 +54,14 @@ let g:tagbar_type_groovy = {
   \ 'f:function',
   \ 'v:variables',
   \ ]
-\ } 
+\ }
 
 " NERDTree
 map <S-w> :NERDTreeToggle<CR>
+let NERDTreeIgnore = ['\~$', '\.tox$', 'dist', '\.o$', '\.sw[op]$', '\.pyc$', '\.egg-info$', '\.git$', '\.aux$', '\.bbl$', '\.blg$', '\.dvi$', '.DS_Store$', '.ropeproject','target$[[dir]]','build$[[dir]]']
+let NERDTreeShowHidden = 1
+let NERDTreeShowLineNumbers = 0
+let NERDTreeSortOrder = ['\/$', '\.h$', '\.c$', '*']
+let NERDTreeWinSize = 30
+let NERDTreeShowBookmarks=1
+let NERDTreeMinimalUI = 1

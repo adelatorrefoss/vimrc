@@ -1,0 +1,80 @@
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'tpope/vim-fugitive'
+Bundle 'kien/ctrlp.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'msanders/snipmate.vim'
+Bundle 'Raimondi/delimitMate'
+Bundle 'vim-scripts/VimClojure'
+Bundle 'mattn/emmet-vim'
+Bundle 'docunext/closetag.vim'
+Bundle 'majutsushi/tagbar'
+Bundle 'godlygeek/tabular'
+Bundle 'tomtom/tcomment_vim'
+
+set nu
+syntax on
+
+colorscheme peachpuff
+set laststatus=2
+set nowrap
+set wildignore+=*/tmp/*,*.class,
+set cursorline
+set nobackup
+set nowritebackup
+set noswapfile
+
+set expandtab " I don't want tabs, just spaces
+set shiftwidth=4 " How many spaces to use when autoindenting
+set tabstop=4 " How many spaces to write on TAB
+set smarttab " Use my shiftwidth when using tab
+
+set textwidth=100 " Max char count in a line before doing a hard break
+
+set autoindent " Keep indentation of previous line on new line
+set smartindent " autoindent some structures (like lines after {, etc)
+
+set wildignore+=*/target/** " Usual Grails build directory -- Ctrlp
+set wildignore+=*/build/** " Usual Gradle build directory -- Ctrlp
+
+let NERDTreeIgnore=['target$[[dir]]', 'build$[[dir]]'] " Ignoring same directories for NERDTree
+
+filetype plugin indent on
+
+map <silent> Q :ccl<CR>
+map <S-w> :NERDTreeToggle<CR>
+map <space> :tag <c-r><c-w><CR>
+map :apache :0r ~/.vim/licenses/apache_2.0.txt
+
+:imap jk <Esc>
+
+" Tagbar
+let g:tagbar_ctags_bin='/usr/bin/ctags'
+nmap <F8> :TagbarToggle<CR>
+let g:tagbar_type_groovy = {
+  \ 'ctagstype' : 'groovy',
+  \ 'kinds'     : [
+    \ 'p:package',
+    \ 'c:class',
+    \ 'i:interface',
+    \ 'f:function',
+    \ 'v:variables',
+  \ ]
+\ }
+
+
+au BufNewFile,BufRead *.gradle set filetype=groovy
+au BufNewFile,BufRead *.coffee set filetype=groovy
+au BufNewFile,BufRead *.scala set filetype=java
+au BufNewFile,BufRead *.clj set filetype=clojure
+
+highlight ExtraWhitespace ctermbg=red guibg=red
+au InsertLeave,BufWinEnter * match ExtraWhitespace /\s\+$/
+au BufWritePre *.groovy,*.java,*.clj,*.cpp,*.h,*.py,*.*pp,*.js,*.html,*.less,*.coffee,*.css,*.md,*.rst :%s/\s\+$//e
+
+
