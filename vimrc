@@ -39,27 +39,45 @@ set wildignore+=*.orig,*.ser
 
 
 " Bundels declaration
+
+" Git wrapper of all time
 Bundle 'tpope/vim-fugitive'
-"Bundle 'ack.vim'
+" Bundle 'ack.vim'
+" This plugin is a front for ag, A.K.A. the_silver_searcher.
 Bundle 'rking/ag.vim'
+" automatically opens popup menu for completions
 Bundle 'AutoComplPop'
+" control p
 Bundle 'ctrlp.vim'
+" EasyMotion provides a much simpler way to use some motions in vim
 Bundle 'EasyMotion'
-Bundle 'tpope/vim-fugitive'
+" visualizing your undo tree to make it usable.
 Bundle 'Gundo'
 Bundle 'vim-less'
 Bundle 'loremipsum'
+" configure % to match more than just single characters
 Bundle 'matchit.zip'
+" TextMate's snippets features in Vim
 Bundle 'snipMate'
+" Sparkup lets you write HTML code faste
 Bundle 'rstacruz/sparkup'
+" provides mappings to easily delete, change and add such surroundings in pairs.
 Bundle 'surround.vim'
+" Tagbar displays the tags of the current file in a sidebar
 Bundle 'Tagbar'
+" works like a toggle
 Bundle 'tComment'
+" local marks
 Bundle 'wokmarks.vim'
+" Vim plugin for rebuilding tags files with ctags
 Bundle 'rebtags'
+" CoffeeScript support
 Bundle 'kchmck/vim-coffee-script'
+" plug-in manager for Vim
 Bundle 'vundle'
+" Easy file navigation and testing of Grails projects
 Bundle 'grails-vim'
+" A tree explorer plugin for navigating the filesystem
 Bundle 'scrooloose/nerdtree'
 
 " Bundels Configuration
