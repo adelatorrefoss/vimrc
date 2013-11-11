@@ -1,11 +1,60 @@
-set smartindent
+set nocompatible
+
+syntax on " Syntax highlight
+
+" Appearence
+colorscheme elflord
+set background=dark
+
+" Variables
+set number
+set numberwidth=4
+set encoding=utf-8
+set laststatus=2
+set showcmd
+
+" Properties
+set modeline
+set modelines=5
+
+" Options
+set nowrap
+set textwidth=99
+set colorcolumn=100
+
+set cursorline
+
+" Search Options
+set incsearch
+set wrapscan
+set ignorecase
+set smartcase
+set hlsearch
+
+" Whitespaces
 set tabstop=4
+set softtabstop=4
 set shiftwidth=4
 set expandtab
 
-filetype plugin on
+" indentation behaviour
+set autoindent
+set copyindent
 
-set nocompatible
+" folding
+set foldmethod=indent
+set foldlevelstart=20
+
+" Remove last spaces
+autocmd BufWritePre * :%s/\s\+$//e
+
+" Show hidden characters
+set list
+set listchars=tab:▸\ ,trail:.
+"highlight NonText ctermfg=1
+
+set clipboard=unnamedplus
+
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -79,6 +128,9 @@ Bundle 'vundle'
 Bundle 'grails-vim'
 " A tree explorer plugin for navigating the filesystem
 Bundle 'scrooloose/nerdtree'
+" Groovim - plugin for groovy by alotor
+Bundle 'alotor/groovim'
+
 
 " Bundels Configuration
 
