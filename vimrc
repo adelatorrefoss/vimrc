@@ -129,7 +129,7 @@ Bundle 'grails-vim'
 " A tree explorer plugin for navigating the filesystem
 Bundle 'scrooloose/nerdtree'
 " Groovim - plugin for groovy by alotor
-Bundle 'alotor/groovim'
+Bundle 'Alotor/groovim'
 
 
 " Bundels Configuration
@@ -147,7 +147,7 @@ let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix', 'dir', 'rtscript',
                          \ 'undo', 'line', 'changes', 'mixed', 'bookmarkdir']
 " Easymotion configuration
-let g:EasyMotion_leader_key = '\'
+let g:EasyMotion_leader_key = '-'
 
 " Vim-Coffee-Script
 autocmd BufNewFile,BufRead *.coffee set filetype=coffee
@@ -210,3 +210,6 @@ map <F9> <ESC>:RebuildTags<CR>
 "source ~/.vim/bundles.vim
 "source ~/.vim/abbreviations.vim
 "source ~/.vim/bindings.vim
+
+au BufReadPost *.jade set syntax=java
+
