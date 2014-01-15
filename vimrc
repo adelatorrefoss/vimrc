@@ -1,3 +1,5 @@
+".vimrc by @adelatorrefoss
+
 set nocompatible
 
 syntax on " Syntax highlight
@@ -131,6 +133,10 @@ Bundle 'scrooloose/nerdtree'
 " Groovim - plugin for groovy by alotor
 Bundle 'Alotor/groovim'
 
+" bindings
+" let mapleader = " " "Leader is <space>
+imap jk <Esc>
+
 
 " Bundels Configuration
 
@@ -176,11 +182,7 @@ let NERDTreeMinimalUI = 1
 
 " NERDTree
 map <S-w> :NERDTreeToggle<CR>
-
-
-" bindings
-" jk is space
-imap jk <Esc>
+nnoremap <S-w>F :NERDTreeFind<CR>
 
 " Spell cheking enabled by default
 map <F6> <Esc>:setlocal spell spelllang=es<CR>
@@ -205,7 +207,8 @@ map <space> :tag <c-r><c-w><CR>
 
 
 " RebTags keybinding
-map <F9> <ESC>:RebuildTags<CR>
+" Doesn't work!!!
+" map <F9> <ESC>:RebuildTags<CR>
 
 "source ~/.vim/bundles.vim
 "source ~/.vim/abbreviations.vim
