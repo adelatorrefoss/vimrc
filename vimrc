@@ -132,6 +132,8 @@ Bundle 'grails-vim'
 Bundle 'scrooloose/nerdtree'
 " Groovim - plugin for groovy by alotor
 Bundle 'Alotor/groovim'
+" Distraction-free writing in Vim.
+Bundle 'junegunn/goyo.vim'
 
 " bindings
 " let mapleader = " " "Leader is <space>
