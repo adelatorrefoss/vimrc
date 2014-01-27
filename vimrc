@@ -55,6 +55,7 @@ set list
 set listchars=tab:▸\ ,trail:.
 "highlight NonText ctermfg=1
 
+" clipboard set to system
 set clipboard=unnamedplus
 
 
@@ -138,6 +139,10 @@ Bundle 'junegunn/goyo.vim'
 " bindings
 " let mapleader = " " "Leader is <space>
 imap jk <Esc>
+nmap gV `[v`]           " highlight last inserted text
+
+set wildmenu
+set showmatch
 
 
 " Bundels Configuration
