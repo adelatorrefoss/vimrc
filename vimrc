@@ -88,7 +88,12 @@ set wildignore+=*.dvi,*.pdf
 set wildignore+=*.jpg,*.png,*.tiff,*.gif
 set wildignore+=*.orig,*.ser
 
-
+" mouse
+set mouse=a
+map <ScrollWheelUp> <C-Y>
+map <S-ScrollWheelUp> <C-U>
+map <ScrollWheelDown> <C-E>
+map <S-ScrollWheelDown> <C-D>
 
 " Bundels declaration
 
