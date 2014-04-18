@@ -21,7 +21,7 @@ set modelines=5
 
 " Options
 set nowrap
-set textwidth=99
+" set textwidth=99
 set colorcolumn=100
 
 set cursorline
