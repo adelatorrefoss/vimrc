@@ -201,6 +201,7 @@ map <F6> <Esc>:setlocal spell spelllang=es<CR>
 
 " CtrlP binding for ctags
 nmap <C-L> :CtrlPTag<CR>
+nmap <C-K> :CtrlPBuffer<CR>
 
 " Tabmove bindings
 nmap <C-Up> :tabmove +1<CR>
