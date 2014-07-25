@@ -20,9 +20,13 @@ set modeline
 set modelines=5
 
 " Options
-set nowrap
-" set textwidth=99
+set wrap
+set linebreak
+set nolist " list disables linebreak
+set textwidth=0
+set wrapmargin=0
 set colorcolumn=100
+set formatoptions+=l
 
 set cursorline
 
@@ -140,6 +144,8 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'Alotor/groovim'
 " Distraction-free writing in Vim.
 Bundle 'junegunn/goyo.vim'
+" Buffer only
+Bundle 'BufOnly.vim'
 
 " bindings
 " let mapleader = " " "Leader is <space>
